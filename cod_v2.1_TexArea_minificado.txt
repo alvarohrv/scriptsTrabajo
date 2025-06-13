@@ -1,0 +1,7 @@
+let template = '<body id ="body" style ="padding: 0; margin: 0;"><div style = "width: 99.9vw; height: 99.9vh; background: rgba(145, 121, 74, 1); margin: 0; color: white">    <div style = "width: 96%; height: 30px; margin: 0px 40px; padding: 5px; display:flex" > <p style = "margin: 0 15px" > Ahorro Voluntario Contractual </p><p style="margin: 0 15px">Documentación a ir recopilando:</p><p style = "margin: 0 15px" > Fondo En Linea Persona </p><p style="margin: 0 15px">Salarios Mínimos Mensuales Legales Vigentes</p ><p style="margin: 0 15px">Caja de Compensación Familiar</p><p style = "margin: 0 15px" > Fondo Nacional Del Ahorro </p> <p style="margin: 0 15px">Colombia32*</p></div >  <textarea class = "" name = "" style = "width: 97vw; height: 70vh; margin: 1px 0px 0px 5px; resize: none; padding: 5px; font-size: 20px; background: rgba(255, 255, 255, 0.9); line-height: 17px; color: black" >  </textarea>    <textarea class = "" name = "" style = "width: 97vw; height: 15vh; margin: 5px 0px 0px 5px; resize: none; padding: 5px; background: rgba(194, 167, 114, 0.8);color: black" > </textarea>    </div>  </body>'
+
+let contBody = document.querySelector('body');
+let contTT = document.querySelector('title');
+
+contBody.innerHTML = template;
+contTT.innerHTML = "____NOTAS____";

@@ -1,0 +1,29 @@
+
+
+// Array de temas a buscar
+const topics = [
+    "Logout",
+];
+const btnLogout = document.getElementById("channel-webchat-logout");
+btnLogout.addEventListener('click',function(){
+    setTimeout(function() {
+  const nodo = document.querySelector('#webChatBreak')
+        const message = document.querySelector('#chat-after-logout-action > #webChatBreak-text')
+  const textlong = document.querySelector('#webChatBreak > #webChatBreak-label')
+  const dospuntostex = document.querySelector('#webChatBreak > span')
+        console.log('asdfasfdasf ',message)
+            topics.forEach((topic) => {
+                if (message.textContent.includes(topic)) {
+                    console.log('::::message:::::::',message)
+                    const updatedText = message.textContent.replace("Logout", "  ");
+        const updatedText2 = textlong.textContent.replace("Action after tasks are done", "  ");
+                    message.textContent = updatedText;
+        textlong.textContent = updatedText2;
+        dospuntostex.textContent = '  ';
+       nodo.style.backgroundColor="green"
+       nodo.style.position= "absolute"
+       nodo.style.zIndex= "100"
+                }
+            });
+    }, 800);  
+})

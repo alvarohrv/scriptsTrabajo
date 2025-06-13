@@ -1,0 +1,4 @@
+const elementos = document.querySelectorAll("#divSmallBoxes");
+elementos.forEach(elemento => {
+  elemento.remove();
+});

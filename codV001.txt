@@ -1,0 +1,1342 @@
+//MejorarCod(tomarHora) // y matriz lineal //  hiv0.11
+// #00f //AZUL
+// #2e8b57 // VERDE
+// #fff // BLANCO
+// orange // red // blue
+
+/* EJEMPLO DE LINEA_
+    // la lina  inicia en '{///Linea y termina en '},///FinLinea' por ejemplo
+
+    {///Linea
+        color_button: `#00f`,
+        color_text: `#000`,
+        value: ` ¿Se encuentra en línea?, el sistema puede finalizar la interacción por inactividad`
+    },
+
+*/
+
+/* EJEMPLO DE FILA con cuatro BOTONES
+    // la fila inicia en '[///FILA' y termina en '],///finFila' por ejemplo:
+
+    [///FILA
+        {///Btn
+            color_button: "#00f",
+            color_text_button: "#000",
+            title:`#G...`,
+            value: `extraF01C01`
+        },
+        {///Btn
+            color_button: "#00f",
+            color_text_button: "#000",
+            title:`#G...`,
+            value: `extraF01C02`
+        },
+        {///Btn
+            color_button: "#00f",
+            color_text_button: "#000",
+            title:`#G...`,
+            value: `extraF01C03`
+        },
+        {///Btn
+            color_button: "#00f",
+            color_text_button: "#000",
+            title:`#G...`,
+            value: `extraF01C04`
+        }
+    ],///finFila
+    [],///---SEPARADOR opcional---///
+
+*/
+
+//Array de inputs /// Bienvenida ////////////////
+let nombreAsesor = `ALVARO RUIZ`
+
+////////////////////////////////////////////
+//Array de inputs por FILAS ////////////////
+
+let arrayPlantillaEnLineas = [
+    {///Linea
+        color_button: `#00f`,
+        color_text: `#000`,
+        value: ` ¿Se encuentra en línea?, el sistema puede finalizar la interacción por inactividad`
+    },///FinLinea
+    {///Linea
+        color_button: `#00f`,
+        color_text: `#000`,
+        value: `¿en que le puedo colaborar el día de hoy?`
+    },///FinLinea
+     {///Linea
+         color_button: `#2e8b57`,
+         color_text: `#000`,
+         value: `  ¿Desea que le colabore con alguna información adicional?`
+     },///FinLinea
+     {///Linea
+         color_button: `#00f`,
+         color_text: `#000`,
+         value: `con mucho gusto. Gracias por comunicarse con nuestro canal virtual del Fondo Nacional del Ahorro y recuerde contar con nosotros para convertir sus ahorros en vivienda. Habló con Alvaro Ruiz que tenga un excelente día. En caso de alguna inquietud adicional por favor comunicarse a nuestra línea de WhatsApp: 3213213441, por nuestro canal de Chat ingresando a www.fna.gov.co o las líneas telefónicas: Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO) de Domingo a Domingo de 6 AM a 9 PM.`
+     },///FinLinea
+     {///Linea
+         color_button: `#00f`,
+         color_text: `#000`,
+         value: `- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son: Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM. Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.`
+     },///FinLinea
+      {///Linea
+          color_button: `orange`,
+          color_text: `#000`,
+          value: `permitame, la información que requiere es personal, por motivos de seguridad debemos validar su identidad; me indica por favor la fecha de expedición de su cédula.`
+      },///FinLinea
+      {///Linea
+          color_button: `#00f`,
+          color_text: `#000`,
+          value: `Gracias, permítame validar`
+      },///FinLinea
+      {///Linea
+          color_button: `#00f`,
+          color_text: `#000`,
+          value: `Gracias, permítame un momento por favor`
+      },///FinLinea
+      {///Linea
+          color_button: `#00f`,
+          color_text: `#000`,
+          value: `¿Aun se encuentra laborando con el empleador que genero sus aportes?`
+      },///FinLinea
+       {///Linea
+           color_button: `#2e8b57`,
+           color_text: `#000`,
+           value: ` ¿Tiene alguna duda al respecto en que le pueda colaborar?`
+       },///FinLinea
+];
+
+////--------------------------------------------------
+//Array de inputs TIPO MATRIZ (1) ////////////////
+
+let arrayPlantillaMatriz = [
+    [///FILA
+        {///Btn
+            color_button: `#f03e3e`,
+            color_text_button: `#fff`,
+            title:`G...`,
+            value: `,usted es parte importante de nuestra familia y nos interesa su bienestar. Por eso le informamos que El FNA, tiene la plataforma de fondo en línea donde usted puede generar las siguientes consultas y solicitudes, consulta de saldo de ahorro voluntario y/o cesantías, solicitudes de retiro cesantías, consultar y generar facturas de crédito y/o de ahorro voluntario, certificados con saldo o sin saldo de sus productos. entre otras consultas.
+
+Es de aclarar que para estas consultas por este canal usted debe contar con usuario y contraseña de ingreso.
+
+Tenga en cuenta que en el punto de atención usted puede realizar las siguientes solicitudes 
+Consulta de saldos de sus productos solicitar retiros, solicitar copia de factura de crédito o de ahorro voluntario y certificados con o sin saldo de sus productos, abono de cesantías y Ahorro Voluntario al Crédito entre otras consultas y tramites que se pueden realizar.
+
+Actualmente contamos con puntos de atención en las diferentes ciudades; esta información la para validar la información en nuestra página web www.fna.gov.co // atención ciudadana // puntos de atención. Usted se puede dirigir a cualquiera de nuestros puntos de atención del Fondo Nacional del Ahorro en el horario establecido y con disponibilidad de tiempo, teniendo en cuenta que la atención se realizará por medio de turnos entregados en los puntos por orden de llegada y será atendido ese mismo día, es recomendable que se acerque a primera hora ya que se atiende bajo capacidad del Punto de atención.
+
+Le solicitamos muy atentamente que en sus futuras comunicaciones con el canal virtual del FNA en su mensaje nos indique la Solicitud por la cual se comunica.
+Esto con el fin de poder enviarle la respuesta más oportuna y el proceso que se ajusta a su requerimiento.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: `#1e820ab3`,
+            color_text_button: `#fff`,
+            title:`Af.G`,
+            value: `,recuerde que al tener sus cesantías (por apertura o traslado) y/o ahorro voluntario en el Fondo Nacional del Ahorro, puede acceder a todos nuestros beneficios, incluyendo las diferentes líneas de crédito para adquirir su vivienda propia.
+Puede afiliarse solo presentando el formulario de afiliación (descargable en www.fna.gov.co) y fotocopia preferiblemente ampliada al 150% de su documento de identidad. También contamos con puntos de atención en las diferentes ciudades, que puede consultar en nuestra página web // Atención Ciudadana // Puntos de Atención.
+Adicionalmente, puede realizar su afiliación de forma virtual en www.fna.gov.co // Afiliaciones Digitales, siguiendo el paso a paso indicado, o solicitando ser contactado a través de www.fna.gov.co/mi-casa-propia // “Quiero que me contacten”; donde un asesor se comunicará con usted en un plazo máximo de 5 días hábiles para apoyarlo en el proceso (se recomienda tener lista su documentación).
+
+(Para descargar el 'formulario único de solicitud de afiliación', puede ingresar a través de la página www.fna.gov.co Atención ciudadana // trámites y servicios - un formulario por tramite)
+Para más información lo invito a comunicarse nuevamente con nuestro canal para ampliar la información y que sea usted parte de nuestra entidad.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: `#1e820ab3`,
+            color_text_button: `#fff`,
+            title:`Af.-`,
+            value: `,recuerde que al tener sus cesantías (por apertura o traslado) y/o ahorro voluntario en el Fondo Nacional del Ahorro, puede acceder a todos nuestros beneficios, incluyendo las diferentes líneas de crédito para adquirir su vivienda propia.
+Puede afiliarse solo presentando el formulario de afiliación (descargable en www.fna.gov.co) y fotocopia preferiblemente ampliada al 150% de su documento de identidad. También contamos con puntos de atención en las diferentes ciudades, que puede consultar en nuestra página web // Atención Ciudadana // Puntos de Atención o puede realizar su afiliación solicitando ser contactado a través de www.fna.gov.co/mi-casa-propia // “Quiero que me contacten”; donde un asesor se comunicará con usted en un plazo máximo de 5 días hábiles para apoyarlo en el proceso (se recomienda tener lista su documentación).
+
+(Para descargar el 'formulario único de solicitud de afiliación', puede ingresar a través de la página www.fna.gov.co Atención ciudadana // trámites y servicios - un formulario por tramite)
+Para más información lo invito a comunicarse nuevamente con nuestro canal para ampliar la información y que sea usted parte de nuestra entidad.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: `#1e820ab3`,
+            color_text_button: `#fff`,
+            title:`C.H`,
+            value: `,el Fondo Nacional del Ahorro tiene para nuestros afiliados las mejores alternativas de crédito hipotecario y leasing habitacional  para la adquisición de vivienda propia para todos los colombianos; si usted se encuentra vinculado por cesantías o por ahorro voluntario contractual y cumple con el puntaje requerido, puede iniciar su estudio de crédito para conocer el monto que le podemos financiar y adicional acceder a los subsidios y beneficios para completar el cierre financiero para cumplir su sueño de tener vivienda.
+
+Para más información lo invito a comunicarse nuevamente con nuestro canal para ampliar la información de cómo acceder a nuestros créditos si ya se encuentra afiliado y en el caso que aún no haga parte de nuestra familia le brindaremos la información para poderse vincular a través de cesantías o ahorro voluntario contractual.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+    ],///finFila
+    [///FILA
+        {///Btn
+            color_button: "#fa4600d9",
+            color_text_button: "#fff",
+            title:`Ret.G`,
+            value: `,respecto al retiro de cesantías usted puede retirarlas para educación, vivienda, en caso de desvinculación laboral y por compra de acciones de una empresa pública que esté pasando a privada esto se estipula en la ley 50 de 1990, según acuerdo 2219 del 2018 emitido por el gobierno nacional. 
+
+Si su deseo es realizar el retiro de su Ahorro Voluntario Contractual AVC, tenga presente que no puede hacer retiros parciales, solo totales, así que si realiza el retiro quedará desvinculado del Fondo Nacional del Ahorro y perderá todos los beneficios que tenemos para usted
+
+Recuerde que teniendo sus cesantías o AVC con nosotros puede ser beneficiario de crédito vivienda con las tasas de interés más competitivas del mercado, adicional a esto el FNA cuenta con décadas de experiencia, solidez, confianza y rentabilidad.
+
+Sin embargo, si su decisión es retirarlas le recordamos que lo puede realizar en nuestros puntos de atención o por medio de nuestra plataforma Fondo en Línea (aplica restricciones), por tal motivo lo invitamos a comunicarse nuevamente con nuestro canal para ampliar la información de la documentación y tramite según sea el motivo de su retiro.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: "#fa4600d9",
+            color_text_button: "#fff",
+            title:`R.C`,
+            value: `,respecto al retiro de cesantías, puede realizarlas por educación, vivienda, desvinculación laboral o compra de acciones de una empresa pública en procesos de privatización, según lo establecido en la Ley 50 de 1990 y el Acuerdo 2219 del 2018.
+Recuerde que mantener sus cesantías con nosotros le permite acceder a créditos de vivienda con tasas competitivas, respaldados por decadas de solidez, credibilidad y experiencia del Fondo Nacional del Ahorro.
+Si decide retirarlas, puede hacerlo en nuestros puntos de atención o a través de la plataforma Fondo en Línea (aplica restricciones). Para más información sobre el trámite y requisitos, lo invitamos a comunicarse nuevamente con nuestro canal de atención.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: "#fa4600d9",
+            color_text_button: "#fff",
+            title:`R.AVC`,
+            value: `,si su deseo es realizar el retiro de su Ahorro Voluntario Contractual, tenga presente que no puede hacer retiros parciales, solo totales, así que si realiza el retiro quedará desvinculado del Fondo Nacional del Ahorro y perderá todos los beneficios que tenemos para usted, como poder acceder a un crédito de vivienda.
+
+Sin embargo, si su decisión es retirarlo le recordamos que lo puede realizar en nuestros puntos de atención o por medio de nuestra plataforma Fondo en Línea (aplica restricciones), por tal motivo lo invitamos a comunicarse nuevamente con nuestro canal para ampliar la información de la documentación y tramite.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`        
+        },
+        {///Btn
+            color_button: "#fa4600d9",
+            color_text_button: "#fff",
+            title:`PreVnc`,
+            value: `,si su deseo es realizar el retiro de su Ahorro Voluntario Contractual, tenga presente que no puede hacer retiros parciales, solo totales, así que si realiza el retiro quedará desvinculado del Fondo Nacional del Ahorro y perderá todos los beneficios que tenemos para usted, como poder acceder a un crédito de vivienda.
+
+Sin embargo, si su decisión es retirarlo le recordamos que lo puede realizar en nuestros puntos de atención o por medio de nuestra plataforma Fondo en Línea (aplica restricciones), por tal motivo lo invitamos a comunicarse nuevamente con nuestro canal para ampliar la información de la documentación y tramite.
+
+Recuerde que para el primer aporte a su Ahorro Voluntario Contractual una vez realizado el contrato tendrá un mes (30 días calendario) para hacer la primera consignación de forma presencial con el comprobante de pago (tirilla de pago) en las entidades bancarias de recaudo autorizadas o desde el botón PSE (en el Home de la web del FNA, solo le solicita su tipo y numero de cedula), luego poder realizar próximas consignaciones por Fondo En Linea Persona si así lo desea. (recuerde que la tirilla de pago puede ser reutilizada si el Código de barra es legible puesto que el Código no cambia).
+* Banco Itaú
+* Banco Sudameris
+* Banco de Occidente
+* Banco Bogotá
+* Bancolombia
+* Banco Popular
+* Banco Davivienda
+* Banco Agrario
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        }
+    ],///finFila
+    [///FILA
+        {///Btn
+            color_button: "gray",
+            color_text_button: "#fff",
+            title:`Turno+`,
+            value: `,actualmente contamos con puntos de atención en las diferentes ciudades; esta información la puede validar en nuestra página web www.fna.gov.co // atención ciudadana // puntos de atención. Usted se puede dirigir a cualquiera de nuestros puntos de atención del Fondo Nacional del Ahorro en el horario establecido solicitando un turno virtual  de Domingo a Domingo de 8am a 5pm, ingrese a nuestro portal www.fna.gov.co, en la parte superior izquierda dar clic en el banner “turnos”, diligencie el formulario y darle ingresar; la plataforma de turnos está habilitada de Domingo a Domingo a partir de las 08:00 am.
+
+            Recuerde, si lo requiere, puede acercarse a cualquiera de nuestros puntos de atención del Fondo Nacional del Ahorro, en los horarios establecidos, para realizar la actualización de sus datos. Puede descargar del portal web el 'Formato Actualización de datos persona natural', diligenciarlo en su totalidad (letra clara, en tinta negra, sin tachones ni enmendaduras) y fotocopia legible del documento de identidad. Trámite sujeto a validación.
+            Para descargar el formulario puede ingresar a través de la página http://www.fna.gov.co // Atención ciudadana // trámites y servicios // Formato Actualización de datos persona natural.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: "gray",
+            color_text_button: "#fff",
+            title:`Lega`,
+            value: `,el Fondo nacional del ahorro le apoyara en el trámite correspondiente a su proceso de legalización de crédito Hipotecario por lo cual lo invitamos a comunicarse a las líneas de atención:
+Bogotá (601)3525919
+Línea nacional 018000123362
+#289 opción 2 (aplica para los operadores MOVISTAR, CLARO Y TIGO)
+
+En horario de atención de lunes a domingo (incluyendo festivos): 6:00 am a 9:00 pm.
+
+Para mayor información lo invito a comunicarse nuevamente con nuestro canal para ampliar la información de cómo acceder a nuestros créditos si ya se encuentra afiliado y en el caso que aún no haga parte de nuestra familia le brindaremos la información para poderse vincular a través de cesantías o ahorro voluntario contractual.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+            color_button: `#1e820ab3`,
+            color_text_button: `#fff`,
+            title:`Felp`,
+            value: `,el FNA pone a su disposición la plataforma Fondo en Línea, donde puede:
+- Consultar saldos de ahorro voluntario y/o cesantías.
+- Solicitar retiros de cesantías.
+- Consultar y generar facturas de crédito y ahorro voluntario.
+- Descargar certificados con o sin saldo, entre otros servicios.
+(Para el uso de este canal, es necesario, tener sus datos de contacto actulizados y contar con usuario y contraseña).
+Tenga en cuenta que en el punto de atención usted puede realizar las siguientes solicitudes:
+- Consultar saldos y solicitar retiros.
+- Actualizar datos personales (como correo y celular) para el acceso a la plataforma.
+- Solicitar copias de facturas y certificados con o sin saldo de sus productos.
+- Abono de cesantías y ahorro voluntario al crédito. Entre otras consultas y tramites que se pueden realizar.
+------
+Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        },
+        {///Btn
+    color_button: `#1e820ab3`,
+    color_text_button: `#fff`,
+    title:`CH+`,
+    value: `, el Fondo Nacional del Ahorro ofrece a nuestros afiliados las mejores alternativas de crédito hipotecario y leasing habitacional para la adquisición de vivienda propia. Si usted está vinculado por cesantías o ahorro voluntario contractual y cumple con el puntaje requerido, puede iniciar su estudio de crédito para conocer el monto que lr podemos financiar. Con un crédito aprobado, podrá acceder a subsidios y beneficios que le permitirán completar el cierre financiero y cumplir el sueño de tener vivienda propia.
+    Por ejemplo, un preaprobado debe solicitarse directamente en nuestros Puntos de Atención, presentando su documento de identidad en físico y cumpliendo con el puntaje exigido. Recuerde que el valor indicado en el preaprobado es un aproximado del monto a financiar por parte del FNA, y es un documento de carácter informativo (pues está sujeto a un estudio de crédito). Su vigencia es de 30 días.
+    Para más información, lo invitamos a comunicarse nuevamente con nuestro canal de atención para ampliar detalles sobre cómo acceder a nuestros créditos si ya se encuentra afiliado.
+    ------
+    Gracias por comunicarse con nuestro canal virtual, le recuerdo mi nombre es Alvaro Ruiz, le deseo un feliz resto de día.
+- Esta interacción ha sido finalizada por inactividad, Le invitamos a comunicarse con los canales de información que tiene el FNA a su disposición; como lo son:
+Línea De Atención Nacional 018000527070, en la Ciudad de Bogotá 601 307 7070, por medio de nuestro canal de Chat ingresando a www.fna.gov.co, Línea de WhatsApp: 3213213441 o al Código Corto #289 (aplica para los operadores MOVISTAR, CLARO Y TIGO); todos nuestros canales se encuentran disponibles de Domingo a Domingo en los horarios de 6 AM a 9 PM.`
+        }
+    ],///finFila
+    [],///---SEPARADOR---///
+    [///FILA
+        {///Btn
+            color_button: "#606060",
+            color_text_button: "#fff",
+            title:`Af`,
+            value: ` con gusto, permítame, con el fin de registrar su comunicación y una mejor asesoría por favor me indica los siguientes datos:
+* Número de contacto
+* Ciudad de la cual se comunica
+* Actividad económica  (independiente declarante de renta, independiente no declarante de renta, pensionado, empleado publico o con vinculación laboral)`
+        },
+        {///Btn
+            color_button: "#606060",
+            color_text_button: "#fff",
+            title:`Af?...`,
+            value: `¿Desea que le colabore con alguna información adicional o como realizar alguno de los procesos de afiliación?`
+        },
+        {///Btn
+            color_button: "#606060",
+            color_text_button: "#fff",
+            title:`Pnts?`,
+            value: `¿Desea que le colabore para consultar su puntaje o alguna información adicional?`        
+        },
+        {///Btn
+            color_button: "#606060",
+            color_text_button: "#fff",
+            title:`Doc?`,
+            value: `¿Desea que le colabore con la documentación a radicar o alguna información adicional?`
+        }
+    ],///finFila
+];
+
+
+
+////--------------------------------------------------
+//Array de inputs TIPO MATRIZ (2) ////////////////
+
+let arrayPlantillaMatriz_2 = [
+
+    {    color_button: "red",
+        color_text_button: "#fff",
+        title:`#Rc`,
+        value: `Permítame, si lo desea, se enviará un documento con la información del trámite de Retiro de Cesantías vía whatsapp, en un lapso de 24 horas hábiles. ¿autoriza usted el envió de este documento informativo y de ser así me confirma su numero de teléfono celular por favor?  
+`
+    },
+    {///Btn
+        color_button: "red",
+        color_text_button: "#fff",
+        title:`#Ravc`,
+        value: ` Permítame, si lo desea, se enviará un documento con la información del trámite de Retiro de Ahorro Voluntario Contractual vía whatsapp, en un lapso de 24 horas hábiles. ¿autoriza usted el envió de este documento informativo y de ser así me confirma su numero de teléfono celular por favor? `
+    },
+    {///Btn
+        color_button: "red",
+        color_text_button: "#fff",
+        title:`#Af`,
+        value: ` Permítame, si lo desea, se enviará un documento con la información del trámite de Afiliación vía whatsapp, en un lapso de 24 horas hábiles. ¿autoriza usted el envió de este documento informativo y de ser así me confirma su numero de teléfono celular por favor? `
+    },
+    {///Btn
+        color_button: "red",
+        color_text_button: "#fff",
+        title:`#Tras`,
+        value: ` Permítame, si lo desea, se enviará un documento con la información del trámite de Traslado de Cesantías vía whatsapp, en un lapso de 24 horas hábiles. ¿autoriza usted el envió de este documento informativo y de ser así me confirma su numero de teléfono celular por favor? `
+    },
+    {///Btn
+        color_button: "grey",
+        color_text_button: "#fff",
+        title:`#1B`,
+        value: `Bienvenido al FNA, mi nombre es ALVARO RUIZ, somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy?`
+    },
+    {///Btn
+        color_button: "grey",
+        color_text_button: "#fff",
+        title:`#2`,
+        value: `Señor  buenos días  ¿Se encuentra en línea? `
+    },
+    {///Btn
+        color_button: "blue",
+        color_text_button: "#fff",
+        title:`..av?`,
+        value: `¿Desea que le colabore con alguna información adicional o conocer mas sobre el Ahorro Voluntario Contractual?`
+    },
+    {///Btn
+        color_button: "blue",
+        color_text_button: "#fff",
+        title:`av..`,
+        value: `Gracias, permítame y le amplio de que trata el Ahorro Voluntario Contractual.`
+    }
+
+
+
+];
+
+////////////////////////////////////////////////////
+//Areas de Texto Plano //////////////////
+let arrayTextoPlanos = [
+    "muy bien gracias, bienvenid",
+    "Ahorro Voluntario Contractual",
+    "Fondo Nacional Del Ahorro",
+    "Fondo En Linea Persona",
+    "Caja de Compensación Familiar",
+    "Documentación a ir recopilando",
+    "Salarios Mínimos Mensuales Legales Vigentes"
+];
+
+
+
+
+
+
+/////////////////////////////
+
+
+////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+        //////////////////////////////////////////////////// Logica del Programa: (No tocar)
+    ////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+
+///////////SALUDOS DINAMICO
+let momentoDelDiaArray = ["buenos días","buenas tardes","buenas noches","buen día"];
+let momentoDelDia = "";
+
+///////////////////////////////
+
+let template1 = `<body style="min-width: 180px;background: white; margin: 5px"> <div style="display:flex">
+
+<div style="max-width: 32px; min-width: 32px;height:21px;margin: 1px 4px 0px -2px;padding:0;display:flex;backgrund-color:grey;border:1px solid #00f;border-radius:25px;overflow:hidden"><textarea resize: none cols="1" rows="1" id="idtextareaHi" class="" style="width:3px;border:none;border-radius:25px 0 0 25px ;resize:none;padding:1px;text-overflow:ellipsis; font-size: 8px;overflow: hidden;color:white" > Bienvenido al FNA, mi nombre es ${nombreAsesor}, somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy? Señor Usuario HolaMundo ¿Se encuentra en línea? el sistema puede finalizar la interacción por inactividad</textarea><button id="idbtnHi" style="background:#2e6238;color:white;height:auto;min-width:29px;font-size: 8px;border-radius: 25px;margin: 0 5px 0 0; transition: background-color 0.3s;" onmousedown="this.style.backgroundColor='#234a2b'" onmouseup="this.style.backgroundColor='#2e6238'">Hi!</button></div>
+
+<div style=" width:134px;height:15px;margin:5px 0;padding:0;display:flex;backgrund-color:grey;border:1px solid #00f;border-radius:25px;overflow:hidden"><button id="btna" style="font-size: 10px; background:#ff0;color:orange;height:auto;width:100%;border-radius:25px 0 0 25px">BN</button><button id="btnb" style="font-size: 10px; background:orange;color:#fff;height:auto;width:100%;border-radius:0">BT</button><button id="btnc" style="font-size: 10px; background:#00f;color:#fff;height:auto;width:100%;border-radius:0 25px 25px 0">Bnch</button></div><input type="text" id="conta" class="" style="opacity: 0.2;color:white; width:4px; font-size: 8px" value=" Bienvenido al FNA, mi nombre es ${nombreAsesor}, somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy? Señor Usuario buenos días  ¿Se encuentra en línea? el sistema puede finalizar la interacción por inactividad"> <input type="text" id="contb" class="" style="opacity: 0.2;color:white; width:4px; font-size: 8px" value=" Bienvenido al FNA, mi nombre es ${nombreAsesor}, somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy? Señor Usuario buenas tardes  ¿Se encuentra en línea? el sistema puede finalizar la interacción por inactividad"> <input type="text" id="contc" class="" style="opacity: 0.2;color:white; width:4px; font-size: 8px" value=" Bienvenido al FNA, mi nombre es ${nombreAsesor}, somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy? Señor Usuario buenas noches  ¿Se encuentra en línea? el sistema puede finalizar la interacción por inactividad"></div>`
+
+let templeteJsBienvenida = JsBienvenida();
+
+let templeteJS = ""
+let templateHtmlLineas = ""
+// for generador de inputs
+for (let i = 0; i < arrayPlantillaEnLineas.length; i++) {
+    templateHtmlLineas += htmlGenerate(i, arrayPlantillaEnLineas[i]);
+    templeteJS += getCodeJSstring(i);
+}
+
+let templeteJS_Mtx = ""
+let templateHtmlMatriz  = ""
+for (let f = 0; f < arrayPlantillaMatriz.length; f++) {
+    let fila = arrayPlantillaMatriz[f]
+    if(fila.length == 0){
+        templateHtmlMatriz +=`<hr style="margin: 0" >`
+        continue;
+    }
+    templateHtmlMatriz += `<div style="display: flex; width: 265px">`
+    for (let c = 0; c < fila.length; c++) {     
+        templateHtmlMatriz += htmlGenerateBtnForMulti(f,c,fila[c]);
+        templeteJS_Mtx += getCodeJSstringForMulti(f,c);
+    }
+    templateHtmlMatriz += `</div>`
+}
+
+let templeteJS_MtxPost = ""
+let templeteHtmlMatriz_Post  = ""
+
+
+arrayPlantillaMatriz_2_formatoFilaYColumn = transformarMatriz(arrayPlantillaMatriz_2, 4);
+for (let f = 0; f < arrayPlantillaMatriz_2_formatoFilaYColumn.length; f++) {
+    let fila = arrayPlantillaMatriz_2_formatoFilaYColumn[f]
+    if(fila.length == 0){
+        templeteHtmlMatriz_Post +=`<hr style="margin: 0" >`
+        continue;
+    }
+    templeteHtmlMatriz_Post += `<div style="display: flex; width: 265px">`
+    for (let c = 0; c < fila.length; c++) {     
+        templeteHtmlMatriz_Post += htmlGenerateBtnForMulti_2(f,c,fila[c]);
+        templeteJS_MtxPost += getCodeJSstringForMulti_2(f,c);
+    }
+    templeteHtmlMatriz_Post += `</div>`
+}
+
+function transformarMatriz(arrayOriginal, elementosPorFila) {
+    let nuevaMatriz = [];
+    for (let i = 0; i < arrayOriginal.length; i += elementosPorFila) {
+        nuevaMatriz.push(arrayOriginal.slice(i, i + elementosPorFila));
+    }
+    return nuevaMatriz;
+}
+
+
+
+
+let templatePlane = `<div style = "width: 240px; margin: 0; font-size: 12px;">   ` 
+for (let i = 0; i < arrayTextoPlanos.length; i++) {
+    templatePlane += htmlPlaneGenerate(arrayTextoPlanos[i]);
+}
+templatePlane += `</div >`
+
+
+/////////////////////////////////////////////
+//templeteJS /////////////////////////////////
+templeteJS +=  templeteJS_Mtx;
+templeteJS += templeteJS_MtxPost
+templeteJS += templeteJsBienvenida
+templeteJS +=  getCodeJSForSaludoDinamico() 
+templeteJS += jsarextra()
+
+
+let template = `
+${template1}
+${templateHtmlLineas}
+${templateHtmlMatriz}
+
+
+    <div style="display:flex; width: 215px"><textarea name="" id="idInputtxArea1" cols="37" rows="5" style="resize: none;border:1px solid black;border-radius:15px 0 0 15px ;resize:none;padding:5px 1px 2px 8px; font-size: 8px;"></textarea></br><div id="idBtntxArea1" style="background:grey;color:#fff;height:auto;width:8px;height: 45px;font-size: 8px;margin: auto 0px auto 2px;" onmouseover="this.style.backgroundColor='red'; this.style.cursor='pointer';"  onmouseout="this.style.backgroundColor='grey'; this.style.cursor='default';"></div></div>
+    <div style="display:flex; width: 215px"><textarea name="" id="idInputtxArea2" cols="37" rows="5" style="resize: none;border:1px solid black;border-radius:15px 0 0 15px ;resize:none;padding:5px 1px 2px 8px; font-size: 8px;"></textarea></br><div id="idBtntxArea2" style="background:grey;color:#fff;height:auto;width:8px;height: 45px;font-size: 8px;margin: auto 0px auto 2px;" onmouseover="this.style.backgroundColor='red'; this.style.cursor='pointer';"  onmouseout="this.style.backgroundColor='grey'; this.style.cursor='default';"></div></div>
+    <div style="display:flex; width: 215px"><textarea name="" id="idInputtxArea3" cols="37" rows="5" style="resize: none;border:1px solid black;border-radius:15px 0 0 15px ;resize:none;padding:5px 1px 2px 8px; font-size: 8px;"></textarea></br><div id="idBtntxArea3" style="background:grey;color:#fff;height:auto;width:8px;height: 45px;font-size: 8px;margin: auto 0px auto 2px;" onmouseover="this.style.backgroundColor='red'; this.style.cursor='pointer';"  onmouseout="this.style.backgroundColor='grey'; this.style.cursor='default';"></div></div>
+
+
+
+
+
+    ${templeteHtmlMatriz_Post}
+<div style="width: auto; display: flex;">
+<div style="width: 200px; font-size: 10px; display: flex; justify-content: space-between; background: gray; color:#c6c6c6; padding: 2px;"><h4 id="english-text" style="margin: 1px;">- - -</h4> <h4 id="spanish-text" style="margin: 1px;">- - -</h4></div>
+</div>
+${templatePlane}
+<div style="width:62px;height:20px;margin:5px 0;padding:0;display:none;backgrund-color:grey;border:1px solid #00f;border-radius:25px;overflow:hidden"> <textarea resize: none cols="1" rows="1" id="f99" class="" style="width:3px;border:none;border-radius:25px 0 0 25px ;resize:none;padding:2px;text-overflow:ellipsis; font-size: 10px"> Permítame, si lo desea, se enviará un documento con la información del trámite de Traslado de Cesantías vía whatsapp, en un lapso de 24 horas hábiles. ¿autoriza usted el envió de este documento informativo y de ser así me confirma su numero de teléfono celular por favor? </textarea><button id="b99" style="background:red;color:#fff;height:auto;width:60px;font-size: 10px;border-radius: 25px;margin: 0 6px 0 0">Cod1</button></div>
+</div>
+
+<div style="display: flex;height:20px"><textarea name="" id="IdTxAreaHtml" cols="17" style="border:1px solid black;border-radius:15px 0 0 15px ;resize:none;padding:5px 1px 2px 8px; font-size: 8px;"></textarea>
+<button id="IdTxBtnAnclar" type="button" style="width: 40px; font-size: 8px" >Anclar</button><button id="IdTxBtnClear" type="button" style="width: 40px; font-size: 8px" >Clear</button><div>
+</br>
+
+<div id="idNodoAncla" style="display: none; position: absolute; padding: 5px; scale: 1; background: grey; top: -0px; left: 0px;">
+</div>
+
+
+
+<script src="script.js"></script></body>`
+
+
+
+
+//////// Insercion ////////// 
+let contBody = document.querySelector('body');
+contBody.innerHTML = template;
+
+var frases = fnfrases()
+eval(templeteJS)
+
+//////////////////// Logica funcional
+
+function JsBienvenida(){
+    return " const conta=document.getElementById('conta');const btna=document.getElementById('btna');btna.addEventListener('click',e=>{conta.focus();document.execCommand('selectAll');document.execCommand('copy')});const contb=document.getElementById('contb');const btnb=document.getElementById('btnb');btnb.addEventListener('click',e=>{contb.focus();document.execCommand('selectAll');document.execCommand('copy')});const contc=document.getElementById('contc');const btnc=document.getElementById('btnc');btnc.addEventListener('click',e=>{contc.focus();document.execCommand('selectAll');document.execCommand('copy')});"
+}
+//////////////////// LINEA
+function htmlGenerate(i, obj) {
+    console.log(obj)
+    return `<div  id="div{i}" style="width:200px;height:15px;margin:1px 0;padding:0;display:flex;backgrund-color:#fff;border:1px solid #00f;border-radius:25px;overflow:hidden"><input type="text" id="cont${i}" class="" style="color:${obj.color_text};font-size: 9px;width:160px;border:none;border-radius:25px 0 0 25px;resize:none;padding:5px;text-overflow:ellipsis" value="${obj.value}"><button id="btn${i}" style="background:${obj.color_button};color:#fff;font-size: 10px;height:auto;width:40px;border-radius:0 25px 25px 0">copy</button></div>`
+}
+// esta funcion returna codijo JS como string
+function getCodeJSstring(i) {
+    return `const cont${i}=document.getElementById('cont${i}');const btn${i}=document.getElementById('btn${i}');btn${i}.addEventListener('click',e=>{cont${i}.focus();document.execCommand('selectAll');document.execCommand('copy')});`
+}
+//////////////////// MATRIZ 
+function htmlGenerateBtnForMulti(f,c, obj) {
+    id= `${f+1}${c+1}`
+    console.log(obj)
+    return `<div style="width:48px;height:15px;margin:3px 0;padding:0;display:flex;backgrund-color:grey;border:1px solid #00f;border-radius:25px;overflow:hidden"><textarea resize: none cols="1" rows="1" id="f${id}" class="" style="width:3px;border:none;border-radius:25px 0 0 25px ;resize:none;padding:1px;text-overflow:ellipsis; font-size: 8px;overflow: hidden;color:white" >${obj.value}</textarea><button id="b${id}" style="background:${obj.color_button};color:${obj.color_text_button};height:auto;min-width:44px;font-size: 8px;border-radius: 25px;margin: 0 5px 0 0">${obj.title}</button></div>`
+}
+// esta funcion returna codijo JS como string
+function getCodeJSstringForMulti(f,c) {
+     id= `${f+1}${c+1}`
+    return ` const f${id}=document.getElementById('f${id}');const b${id}=document.getElementById('b${id}');b${id}.addEventListener('click',e=>{f${id}.focus();document.execCommand('selectAll');document.execCommand('copy')});`
+}
+//////////////////// MATRIZ
+function htmlGenerateBtnForMulti_2(f,c, obj) {
+    id= `extra${f+1}${c+1}`
+    console.log(obj)
+    return `<div style="width:48px;height:15px;margin:3px 0;padding:0;display:flex;backgrund-color:grey;border:1px solid #00f;border-radius:25px;overflow:hidden"><textarea resize: none cols="1" rows="1" id="f${id}" class="" style="width:3px;border:none;border-radius:25px 0 0 25px ;resize:none;padding:1px;text-overflow:ellipsis; font-size: 8px; overflow: hidden; color:white" >${obj.value}</textarea><button id="b${id}" style="background:${obj.color_button};color:${obj.color_text_button};height:auto;min-width:44px;font-size: 8px;border-radius: 25px;margin: 0 5px 0 0">${obj.title}</button></div>`
+}
+// esta funcion returna codijo JS como string
+function getCodeJSstringForMulti_2(f,c) {
+     id= `extra${f+1}${c+1}`
+    return ` const f${id}=document.getElementById('f${id}');const b${id}=document.getElementById('b${id}');b${id}.addEventListener('click',e=>{f${id}.focus();document.execCommand('selectAll');document.execCommand('copy')});`
+}
+//////////////////// Texto plano
+function htmlPlaneGenerate(frase){
+    return `<p style = "margin: 0;" >${frase} </p>` 
+}
+
+
+//////////// BOTON HI DINAMICO
+
+function getCodeJSForSaludoDinamico() {
+    return `
+    let textareaHi = document.getElementById("idtextareaHi");
+    const nodobtnHi=document.getElementById('idbtnHi');
+    nodobtnHi.addEventListener("click", function () {
+        let horaActual = new Date().getHours();
+        if (horaActual >= 5 && horaActual < 12)momentoDelDia = momentoDelDiaArray[0];
+        else if (horaActual >= 12 && horaActual < 19) momentoDelDia = momentoDelDiaArray[1];
+        else if (horaActual >= 19 && horaActual <= 23) momentoDelDia = momentoDelDiaArray[2];
+        else momentoDelDia = momentoDelDiaArray[3];
+        textareaHi.innerHTML = "Bienvenido al FNA, mi nombre es "+nombreAsesor+", somos el canal informativo encargado de apoyarlo con su requerimiento ¿Por favor me indica en que le puedo colaborar el día de hoy? Señor Usuario "+momentoDelDia+" ¿Se encuentra en línea? el sistema puede finalizar la interacción por inactividad";
+        setTimeout(()=>{
+            textareaHi.focus()
+             document.execCommand('selectAll');
+             document.execCommand('copy')
+        },400)
+    });`
+}
+
+
+
+function jsarextra() {
+    return `const f99=document.getElementById('f99');const b99=document.getElementById('b99');b99.addEventListener('click',e=>{f99.focus();document.execCommand('selectAll');document.execCommand('copy')}); let currentIndex = 0;  function changeText() { document.getElementById('english-text').textContent = frases[currentIndex].en; document.getElementById('spanish-text').textContent = frases[currentIndex].es; currentIndex = (currentIndex + 1) % frases.length; }; setInterval(changeText, 4000);const metaTag = document.querySelector('meta[name="color-scheme"]');const styleTag = document.querySelector('style');if (metaTag) metaTag.remove();if (styleTag) styleTag.remove();`
+}
+//setTimeout(()=>{console.log("hola")}, 3000)
+
+setTimeout(()=>{
+        const textarea = document.getElementById("IdTxAreaHtml");
+        const btnAnclar = document.getElementById("IdTxBtnAnclar");
+        const BtnClear = document.getElementById("IdTxBtnClear");
+
+        const nodoAncla = document.getElementById("idNodoAncla");
+
+        btnAnclar.addEventListener("click", function () {
+            nodoAncla.style.display = "flex";
+            nodoAncla.style.flexDirection = "column";
+            nodoAncla.innerHTML = `<button id="IdTxBtnClose" type="button" style="width: 40px; font-size: 8px"> Cerrar </button>`
+            nodoAncla.innerHTML += textarea.value;
+            document.querySelectorAll("td button").forEach(button => {
+                button.textContent = ` / ${button.textContent.slice(0, 6)} `;
+            });
+            document.querySelectorAll("h2").forEach(h2 => {
+                h2.style.fontSize = "15px";
+            });
+            const btnClose = document.getElementById("IdTxBtnClose");
+            btnClose.addEventListener("click", function () {
+                nodoAncla.innerHTML = "";
+                nodoAncla.style.display = "none";
+
+            }); 
+            BtnClear.addEventListener("click", function () {
+                textarea.value = "";
+                //nodoAncla.innerHTML = "";
+            }); 
+        });
+
+        const nodoBtntxArea1 = document.getElementById("idBtntxArea1");
+        const nodoInputtxArea1 = document.getElementById("idInputtxArea1");
+        nodoBtntxArea1.addEventListener("click", function() {
+          nodoInputtxArea1.value = "";
+        });
+        const nodoBtntxArea2 = document.getElementById("idBtntxArea2");
+        const nodoInputtxArea2 = document.getElementById("idInputtxArea2");
+        nodoBtntxArea2.addEventListener("click", function() {
+          nodoInputtxArea2.value = "";
+        });
+        const nodoBtntxArea3 = document.getElementById("idBtntxArea3");
+        const nodoInputtxArea3 = document.getElementById("idInputtxArea3");
+        nodoBtntxArea3.addEventListener("click", function() {
+          nodoInputtxArea3.value = "";
+        });
+
+
+},1000);
+
+/*
+
+*/
+
+
+
+
+/////////////////////////////////////
+function fnfrases() {
+
+    return [
+        { "en": "Abide", "es": "Permanecer" },
+        { "en": "Awake", "es": "Despertar" },
+        { "en": "Arise", "es": "Levantarse" },
+        { "en": "Ask", "es": "Preguntar" },
+        { "en": "Act", "es": "Actuar" },
+        { "en": "Achieve", "es": "Lograr" },
+        { "en": "Agree", "es": "Concordar" },
+        { "en": "Aim", "es": "Apuntar" },
+        { "en": "Appear", "es": "Aparecer" },
+        { "en": "Assume", "es": "Suponer" },
+        { "en": "Arrange", "es": "Organizar" },
+        { "en": "Avoid", "es": "Evitar" },
+        { "en": "Admit", "es": "Admitir" },
+        { "en": "Allow", "es": "Permitir" },
+        { "en": "Assist", "es": "Asistir" },
+        { "en": "Add", "es": "Agregar" },
+        { "en": "Appreciate", "es": "Apreciar" },
+        { "en": "Approach", "es": "Acercarse" },
+        { "en": "Adapt", "es": "Adaptar" },
+        { "en": "Affect", "es": "Afectar" },
+        { "en": "Admire", "es": "Admirar" },
+        { "en": "Attend", "es": "Asistir" },
+        { "en": "Amend", "es": "Enmendar" },
+        { "en": "Annoy", "es": "Molestar" },
+        { "en": "Arrange", "es": "Arreglar" },
+        { "en": "Argue", "es": "Discutir" },
+        { "en": "Arrest", "es": "Arrestar" },
+        { "en": "Assure", "es": "Asegurar" },
+        { "en": "Advertise", "es": "Anunciar" },
+        { "en": "Apologize", "es": "Disculparse" },
+        { "en": "Apply", "es": "Aplicar" },
+        { "en": "Approve", "es": "Aprobar" },
+        { "en": "Assume", "es": "Asumir" },
+        { "en": "Acquire", "es": "Adquirir" },
+        { "en": "Ally", "es": "Aliar" },
+        { "en": "Absorb", "es": "Absorber" },
+        { "en": "Alter", "es": "Alterar" },
+        { "en": "Assemble", "es": "Ensamblar" },
+        { "en": "Analyze", "es": "Analizar" },
+        { "en": "Ascend", "es": "Ascender" },
+        { "en": "Accomplish", "es": "Lograr" },
+        { "en": "Announce", "es": "Anunciar" },
+        { "en": "Advance", "es": "Avanzar" },
+        { "en": "Attach", "es": "Adjuntar" },
+        { "en": "Assign", "es": "Asignar" },
+        { "en": "Abandon", "es": "Abandonar" },
+        { "en": "Adjust", "es": "Ajustar" },
+        { "en": "Adopt", "es": "Adoptar" },
+        { "en": "Appoint", "es": "Nombrar" },
+        { "en": "Accompany", "es": "Acompañar" },
+        { "en": "Amuse", "es": "Divertir" },
+        { "en": "Await", "es": "Esperar" },
+        { "en": "Appeal", "es": "Apelar" },
+        { "en": "Authorize", "es": "Autorizar" },
+        { "en": "Annihilate", "es": "Aniquilar" },
+        { "en": "Adore", "es": "Adorar" },
+        { "en": "Abide", "es": "Aceptar" },
+        { "en": "Become", "es": "Convertirse" },
+        { "en": "Bring", "es": "Traer" },
+        { "en": "Build", "es": "Construir" },
+        { "en": "Buy", "es": "Comprar" },
+        { "en": "Begin", "es": "Empezar" },
+        { "en": "Break", "es": "Romper" },
+        { "en": "Bend", "es": "Doblar" },
+        { "en": "Burn", "es": "Quemar" },
+        { "en": "Beat", "es": "Golpear" },
+        { "en": "Bite", "es": "Morder" },
+        { "en": "Blow", "es": "Soplar" },
+        { "en": "Bake", "es": "Hornear" },
+        { "en": "Bear", "es": "Soportar" },
+        { "en": "Bet", "es": "Apostar" },
+        { "en": "Bind", "es": "Atar" },
+        { "en": "Broadcast", "es": "Transmitir" },
+        { "en": "Burst", "es": "Estallar" },
+        { "en": "Borrow", "es": "Tomar prestado" },
+        { "en": "Blend", "es": "Mezclar" },
+        { "en": "Brush", "es": "Cepillar" },
+        { "en": "Behave", "es": "Comportarse" },
+        { "en": "Boil", "es": "Hervir" },
+        { "en": "Betray", "es": "Traicionar" },
+        { "en": "Back", "es": "Apoyar" },
+        { "en": "Balance", "es": "Equilibrar" },
+        { "en": "Breathe", "es": "Respirar" },
+        { "en": "Believe", "es": "Creer" },
+        { "en": "Blame", "es": "Culpar" },
+        { "en": "Bless", "es": "Bendecir" },
+        { "en": "Block", "es": "Bloquear" },
+        { "en": "Bother", "es": "Molestar" },
+        { "en": "Bend", "es": "Inclinar" },
+        { "en": "Blink", "es": "Parpadear" },
+        { "en": "Breed", "es": "Criar" },
+        { "en": "Budget", "es": "Presupuestar" },
+        { "en": "Burn", "es": "Quemar" },
+        { "en": "Bind", "es": "Encuadernar" },
+        { "en": "Boast", "es": "Presumir" },
+        { "en": "Call", "es": "Llamar" },
+        { "en": "Come", "es": "Venir" },
+        { "en": "Continue", "es": "Continuar" },
+        { "en": "Change", "es": "Cambiar" },
+        { "en": "Create", "es": "Crear" },
+        { "en": "Choose", "es": "Elegir" },
+        { "en": "Cut", "es": "Cortar" },
+        { "en": "Close", "es": "Cerrar" },
+        { "en": "Catch", "es": "Atrapar" },
+        { "en": "Cook", "es": "Cocinar" },
+        { "en": "Consider", "es": "Considerar" },
+        { "en": "Cover", "es": "Cubrir" },
+        { "en": "Come", "es": "Llegar" },
+        { "en": "Control", "es": "Controlar" },
+        { "en": "Complete", "es": "Completar" },
+        { "en": "Connect", "es": "Conectar" },
+        { "en": "Carry", "es": "Llevar" },
+        { "en": "Cry", "es": "Llorar" },
+        { "en": "Check", "es": "Revisar" },
+        { "en": "Copy", "es": "Copiar" },
+        { "en": "Claim", "es": "Reclamar" },
+        { "en": "Consider", "es": "Considerar" },
+        { "en": "Collect", "es": "Recoger" },
+        { "en": "Communicate", "es": "Comunicar" },
+        { "en": "Calculate", "es": "Calcular" },
+        { "en": "Confirm", "es": "Confirmar" },
+        { "en": "Clean", "es": "Limpiar" },
+        { "en": "Change", "es": "Cambiarse" },
+        { "en": "Continue", "es": "Seguir" },
+        { "en": "Do", "es": "Hacer" },
+        { "en": "Dance", "es": "Bailar" },
+        { "en": "Decide", "es": "Decidir" },
+        { "en": "Drink", "es": "Beber" },
+        { "en": "Drive", "es": "Conducir" },
+        { "en": "Discover", "es": "Descubrir" },
+        { "en": "Die", "es": "Morir" },
+        { "en": "Discuss", "es": "Discutir" },
+        { "en": "Develop", "es": "Desarrollar" },
+        { "en": "Deliver", "es": "Entregar" },
+        { "en": "Dream", "es": "Soñar" },
+        { "en": "Draw", "es": "Dibujar" },
+        { "en": "Dress", "es": "Vestir" },
+        { "en": "Dare", "es": "Desafiar" },
+        { "en": "Dig", "es": "Excavar" },
+        { "en": "Demand", "es": "Exigir" },
+        { "en": "Disagree", "es": "Discrepar" },
+        { "en": "Drop", "es": "Dejar caer" },
+        { "en": "Divide", "es": "Dividir" },
+        { "en": "Define", "es": "Definir" },
+        { "en": "Doubt", "es": "Dudar" },
+        { "en": "Damage", "es": "Dañar" },
+        { "en": "Donate", "es": "Donar" },
+        { "en": "Disappear", "es": "Desaparecer" },
+        { "en": "Dance", "es": "Bailar" },
+        { "en": "Dwell", "es": "Residir" },
+        { "en": "Document", "es": "Documentar" },
+        { "en": "Dismiss", "es": "Despedir" },
+        { "en": "Delay", "es": "Retrasar" },
+        { "en": "Destroy", "es": "Destruir" },
+        { "en": "Eat", "es": "Comer" },
+        { "en": "Earn", "es": "Ganar" },
+        { "en": "Enter", "es": "Entrar" },
+        { "en": "Enjoy", "es": "Disfrutar" },
+        { "en": "Expect", "es": "Esperar" },
+        { "en": "Employ", "es": "Emplear" },
+        { "en": "Escape", "es": "Escapar" },
+        { "en": "Explain", "es": "Explicar" },
+        { "en": "Extend", "es": "Extender" },
+        { "en": "Establish", "es": "Establecer" },
+        { "en": "Experience", "es": "Experimentar" },
+        { "en": "End", "es": "Terminar" },
+        { "en": "Examine", "es": "Examinar" },
+        { "en": "Educate", "es": "Educar" },
+        { "en": "Excite", "es": "Emocionar" },
+        { "en": "Edit", "es": "Editar" },
+        { "en": "Exercise", "es": "Ejercitar" },
+        { "en": "Explore", "es": "Explorar" },
+        { "en": "Eliminate", "es": "Eliminar" },
+        { "en": "Encourage", "es": "Animar" },
+        { "en": "Enter", "es": "Ingresar" },
+        { "en": "Escape", "es": "Evadir" },
+        { "en": "Exchange", "es": "Intercambiar" },
+        { "en": "Expect", "es": "Prever" },
+        { "en": "Expand", "es": "Expandir" },
+        { "en": "Employ", "es": "Contratar" },
+        { "en": "Examine", "es": "Analizar" },
+        { "en": "Establish", "es": "Establecer" },
+        { "en": "Embrace", "es": "Abrazar" },
+        { "en": "Feel", "es": "Sentir" },
+        { "en": "Find", "es": "Encontrar" },
+        { "en": "Fly", "es": "Volar" },
+        { "en": "Finish", "es": "Terminar" },
+        { "en": "Forget", "es": "Olvidar" },
+        { "en": "Fix", "es": "Arreglar" },
+        { "en": "Follow", "es": "Seguir" },
+        { "en": "Fight", "es": "Luchar" },
+        { "en": "Fall", "es": "Caer" },
+        { "en": "Fill", "es": "Llenar" },
+        { "en": "Freeze", "es": "Congelar" },
+        { "en": "Fail", "es": "Fallar" },
+        { "en": "Favor", "es": "Favorecer" },
+        { "en": "Feed", "es": "Alimentar" },
+        { "en": "Fix", "es": "Arreglar" },
+        { "en": "Forward", "es": "Reenviar" },
+        { "en": "Fold", "es": "Doblar" },
+        { "en": "Form", "es": "Formar" },
+        { "en": "Focus", "es": "Concentrarse" },
+        { "en": "Flee", "es": "Huir" },
+        { "en": "Frighten", "es": "Asustar" },
+        { "en": "Fulfill", "es": "Cumplir" },
+        { "en": "Force", "es": "Forzar" },
+        { "en": "Forgive", "es": "Perdonar" },
+        { "en": "Fit", "es": "Ajustar" },
+        { "en": "Forward", "es": "Avanzar" },
+        { "en": "Found", "es": "Fundar" },
+        { "en": "Fund", "es": "Financiar" },
+        { "en": "Feel", "es": "Sentir" },
+        { "en": "Go", "es": "Ir" },
+        { "en": "Get", "es": "Obtener" },
+        { "en": "Give", "es": "Dar" },
+        { "en": "Grow", "es": "Crecer" },
+        { "en": "Go off", "es": "Sonar (alarma)" },
+        { "en": "Get up", "es": "Levantarse" },
+        { "en": "Give up", "es": "Rendirse" },
+        { "en": "Get on", "es": "Subirse" },
+        { "en": "Go out", "es": "Salir" },
+        { "en": "Go through", "es": "Pasar por (una experiencia)" },
+        { "en": "Get off", "es": "Bajarse" },
+        { "en": "Go back", "es": "Volver" },
+        { "en": "Get out", "es": "Salir" },
+        { "en": "Give in", "es": "Ceder" },
+        { "en": "Give back", "es": "Devolver" },
+        { "en": "Give away", "es": "Regalar" },
+        { "en": "Get in", "es": "Entrar" },
+        { "en": "Give off", "es": "Desprender (un olor)" },
+        { "en": "Go ahead", "es": "Adelantar" },
+        { "en": "Go around", "es": "Dar la vuelta" },
+        { "en": "Give out", "es": "Distribuir" },
+        { "en": "Get away", "es": "Escapar" },
+        { "en": "Give up on", "es": "Abandonar (algo o alguien)" },
+        { "en": "Go along", "es": "Seguir (un camino)" },
+        { "en": "Get over", "es": "Superar" },
+        { "en": "Go for", "es": "Optar por" },
+        { "en": "Go off", "es": "Estallar (un conflicto)" },
+        { "en": "Go under", "es": "Hundirse" },
+        { "en": "Give in to", "es": "Ceder ante" },
+        { "en": "Get by", "es": "Arreglárselas" },
+        { "en": "Have", "es": "Tener" },
+        { "en": "Hear", "es": "Oír" },
+        { "en": "Help", "es": "Ayudar" },
+        { "en": "Happen", "es": "Suceder" },
+        { "en": "Hold", "es": "Sostener" },
+        { "en": "Hit", "es": "Golpear" },
+        { "en": "Hurt", "es": "Hacer daño" },
+        { "en": "Hang", "es": "Colgar" },
+        { "en": "Hunt", "es": "Cazar" },
+        { "en": "Handle", "es": "Manejar" },
+        { "en": "Hope", "es": "Esperar" },
+        { "en": "Get hold of", "es": "Conseguir" },
+        { "en": "Hold on", "es": "Esperar" },
+        { "en": "Hold back", "es": "Retener" },
+        { "en": "Hold up", "es": "Retrasar" },
+        { "en": "Hand out", "es": "Distribuir" },
+        { "en": "Hang out", "es": "Pasársela (informal)" },
+        { "en": "Hang up", "es": "Colgar (teléfono)" },
+        { "en": "Hit on", "es": "Flirtear con" },
+        { "en": "Hold off", "es": "Postergar" },
+        { "en": "Hold out", "es": "Resistir" },
+        { "en": "Hand over", "es": "Entregar" },
+        { "en": "Hang around", "es": "Andar por ahí" },
+        { "en": "Hunt down", "es": "Buscar y capturar" },
+        { "en": "Head out", "es": "Salir" },
+        { "en": "Hand in", "es": "Entregar" },
+        { "en": "Hang on", "es": "Esperar" },
+        { "en": "Hurry up", "es": "Darse prisa" },
+        { "en": "Hold onto", "es": "Aferrarse a" },
+        { "en": "Hit up", "es": "Pedir dinero prestado" },
+        { "en": "Include", "es": "Incluir" },
+        { "en": "Involve", "es": "Involucrar" },
+        { "en": "Improve", "es": "Mejorar" },
+        { "en": "Introduce", "es": "Introducir" },
+        { "en": "Invent", "es": "Inventar" },
+        { "en": "Ignore", "es": "Ignorar" },
+        { "en": "Inform", "es": "Informar" },
+        { "en": "Install", "es": "Instalar" },
+        { "en": "Invest", "es": "Invertir" },
+        { "en": "Inspire", "es": "Inspirar" },
+        { "en": "Identify", "es": "Identificar" },
+        { "en": "Impress", "es": "Impresionar" },
+        { "en": "Invite", "es": "Invitar" },
+        { "en": "Interfere", "es": "Interferir" },
+        { "en": "Increase", "es": "Aumentar" },
+        { "en": "Interrupt", "es": "Interrumpir" },
+        { "en": "Include in", "es": "Incluir en" },
+        { "en": "Interact", "es": "Interactuar" },
+        { "en": "Inherit", "es": "Heredar" },
+        { "en": "Interpret", "es": "Interpretar" },
+        { "en": "Insist", "es": "Insistir" },
+        { "en": "Influence", "es": "Influir" },
+        { "en": "Immerse", "es": "Sumergirse" },
+        { "en": "Invite over", "es": "Invitar a casa" },
+        { "en": "Insist on", "es": "Insistir en" },
+        { "en": "Inform about", "es": "Informar sobre" },
+        { "en": "Interact with", "es": "Interactuar con" },
+        { "en": "Introduce to", "es": "Presentar a" },
+        { "en": "Invest in", "es": "Invertir en" },
+        { "en": "Impress with", "es": "Impresionar con" },
+        { "en": "Join", "es": "Unirse" },
+        { "en": "Jump", "es": "Saltar" },
+        { "en": "Jog", "es": "Trotar" },
+        { "en": "Judge", "es": "Juzgar" },
+        { "en": "Juggle", "es": "Hacer malabares" },
+        { "en": "Jolt", "es": "Sacudir" },
+        { "en": "Jam", "es": "Atascar" },
+        { "en": "Justify", "es": "Justificar" },
+        { "en": "Jaw", "es": "Mandíbula" },
+        { "en": "Jeopardize", "es": "Poner en peligro" },
+        { "en": "Join in", "es": "Unirse a" },
+        { "en": "Jump out", "es": "Saltar" },
+        { "en": "Jerk off", "es": "Sacudir" },
+        { "en": "Jot down", "es": "Apuntar" },
+        { "en": "Jut out", "es": "Sobresalir" },
+        { "en": "Juggle with", "es": "Hacer malabares con" },
+        { "en": "Jump over", "es": "Saltar por encima de" },
+        { "en": "Jet off", "es": "Despegar" },
+        { "en": "Jab at", "es": "Picar a" },
+        { "en": "Jog on", "es": "Seguir corriendo" },
+        { "en": "Jack up", "es": "Elevar" },
+        { "en": "Jumble up", "es": "Revolver" },
+        { "en": "Jerk around", "es": "Andar a tientas" },
+        { "en": "Join up", "es": "Incorporarse" },
+        { "en": "Jut forward", "es": "Sobresalir hacia adelante" },
+        { "en": "Jam into", "es": "Atascar en" },
+        { "en": "Jolt awake", "es": "Despertar bruscamente" },
+        { "en": "Jump at", "es": "Saltar a" },
+        { "en": "Jaw away", "es": "Hablar mucho" },
+        { "en": "Jump off", "es": "Saltar" },
+        { "en": "Keep", "es": "Guardar" },
+        { "en": "Kick", "es": "Patear" },
+        { "en": "Kill", "es": "Matar" },
+        { "en": "Know", "es": "Saber" },
+        { "en": "Kiss", "es": "Besar" },
+        { "en": "Kneel", "es": "Arrodillarse" },
+        { "en": "Kidnap", "es": "Secuestrar" },
+        { "en": "Knock", "es": "Golpear" },
+        { "en": "Keep up", "es": "Mantenerse al día" },
+        { "en": "Kick off", "es": "Dar inicio" },
+        { "en": "Knock out", "es": "Derribar" },
+        { "en": "Keep on", "es": "Seguir adelante" },
+        { "en": "Knock down", "es": "Derribar" },
+        { "en": "Kick back", "es": "Relajarse" },
+        { "en": "Knock off", "es": "Dejar de trabajar" },
+        { "en": "Keep away", "es": "Mantenerse alejado" },
+        { "en": "Keep out", "es": "Mantener fuera" },
+        { "en": "Keep to", "es": "Atenerse a" },
+        { "en": "Knock over", "es": "Derribar" },
+        { "en": "Keep down", "es": "Mantener abajo" },
+        { "en": "Keep in", "es": "Mantener dentro" },
+        { "en": "Keep off", "es": "Mantenerse alejado de" },
+        { "en": "Knock back", "es": "Rechazar" },
+        { "en": "Knock up", "es": "Quedar embarazada" },
+        { "en": "Keep up with", "es": "Mantenerse al día con" },
+        { "en": "Keep from", "es": "Evitar" },
+        { "en": "Knock around", "es": "Golpear" },
+        { "en": "Keep going", "es": "Seguir adelante" },
+        { "en": "Kick out", "es": "Expulsar" },
+        { "en": "Lose", "es": "Perder" },
+        { "en": "Make", "es": "Hacer" },
+        { "en": "Meet", "es": "Encontrarse" },
+        { "en": "Lend", "es": "Prestar" },
+        { "en": "Learn", "es": "Aprender" },
+        { "en": "Lead", "es": "Dirigir" },
+        { "en": "Leave", "es": "Dejar" },
+        { "en": "Let", "es": "Dejar" },
+        { "en": "Light", "es": "Encender" },
+        { "en": "Lay", "es": "Poner" },
+        { "en": "Lose", "es": "Perder" },
+        { "en": "Make", "es": "Hacer" },
+        { "en": "Mean", "es": "Significar" },
+        { "en": "Meet", "es": "Encontrarse" },
+        { "en": "Mislead", "es": "Engañar" },
+        { "en": "Mistake", "es": "Equivocarse" },
+        { "en": "Move", "es": "Mover" },
+        { "en": "Make up", "es": "Reconciliarse" },
+        { "en": "Mess up", "es": "Estropear" },
+        { "en": "Make out", "es": "Entender" },
+        { "en": "Melt", "es": "Derretir" },
+        { "en": "Mix", "es": "Mezclar" },
+        { "en": "Mow", "es": "Cortar" },
+        { "en": "Manage", "es": "Administrar" },
+        { "en": "Mention", "es": "Mencionar" },
+        { "en": "Mind", "es": "Importar" },
+        { "en": "Move on", "es": "Seguir adelante" },
+        { "en": "Make up for", "es": "Compensar" },
+        { "en": "Make up with", "es": "Reconciliarse con" },
+        { "en": "Nod", "es": "Asentir" },
+        { "en": "Neglect", "es": "Descuidar" },
+        { "en": "Notice", "es": "Notar" },
+        { "en": "Name", "es": "Nombrar" },
+        { "en": "Need", "es": "Necesitar" },
+        { "en": "Nod off", "es": "Dormitar" },
+        { "en": "Note down", "es": "Tomar nota" },
+        { "en": "Nurse", "es": "Cuidar" },
+        { "en": "Narrow down", "es": "Reducir" },
+        { "en": "Nag", "es": "Regañar" },
+        { "en": "Nip", "es": "Pellizcar" },
+        { "en": "Name after", "es": "Poner el nombre de" },
+        { "en": "Nail down", "es": "Asegurar" },
+        { "en": "Nod off", "es": "Cabecear" },
+        { "en": "Nod", "es": "Asentir" },
+        { "en": "Narrow down", "es": "Reducir" },
+        { "en": "Nag", "es": "Regañar" },
+        { "en": "Nip", "es": "Pellizcar" },
+        { "en": "Name after", "es": "Poner el nombre de" },
+        { "en": "Nail down", "es": "Asegurar" },
+        { "en": "Open", "es": "Abrir" },
+        { "en": "Operate", "es": "Operar" },
+        { "en": "Offer", "es": "Ofrecer" },
+        { "en": "Observe", "es": "Observar" },
+        { "en": "Organize", "es": "Organizar" },
+        { "en": "Occur", "es": "Ocurrir" },
+        { "en": "Owe", "es": "Deber" },
+        { "en": "Order", "es": "Ordenar" },
+        { "en": "Opt", "es": "Optar" },
+        { "en": "Own", "es": "Poseer" },
+        { "en": "Perform", "es": "Realizar" },
+        { "en": "Persuade", "es": "Persuadir" },
+        { "en": "Promise", "es": "Prometer" },
+        { "en": "Practice", "es": "Practicar" },
+        { "en": "Produce", "es": "Producir" },
+        { "en": "Protect", "es": "Proteger" },
+        { "en": "Publish", "es": "Publicar" },
+        { "en": "Pursue", "es": "Perseguir" },
+        { "en": "Pick", "es": "Recoger" },
+        { "en": "Paint", "es": "Pintar" },
+        { "en": "Play", "es": "Jugar" },
+        { "en": "Pass", "es": "Pasar" },
+        { "en": "Pull", "es": "Tirar" },
+        { "en": "Put", "es": "Poner" },
+        { "en": "Pay", "es": "Pagar" },
+        { "en": "Pretend", "es": "Fingir" },
+        { "en": "Prepare", "es": "Preparar" },
+        { "en": "Prove", "es": "Probar" },
+        { "en": "Plan", "es": "Planificar" },
+        { "en": "Provide", "es": "Proporcionar" },
+        { "en": "Predict", "es": "Predecir" },
+        { "en": "Pick up", "es": "Recoger" },
+        { "en": "Put on", "es": "Ponerse" },
+        { "en": "Point out", "es": "Señalar" },
+        { "en": "Pass away", "es": "Fallecer" },
+        { "en": "Pick out", "es": "Seleccionar" },
+        { "en": "Pull off", "es": "Lograr" },
+        { "en": "Pay off", "es": "Pagar" },
+        { "en": "Play along", "es": "Jugar" },
+        { "en": "Put up with", "es": "Soportar" },
+        { "en": "Pick off", "es": "Quitar" },
+        { "en": "Play up", "es": "Exagerar" },
+        { "en": "Pick up on", "es": "Darse cuenta de" },
+        { "en": "Pass out", "es": "Desmayarse" },
+        { "en": "Put away", "es": "Guardar" },
+        { "en": "Point to", "es": "Señalar" },
+        { "en": "Pass on", "es": "Pasar" },
+        { "en": "Pick up", "es": "Recoger" },
+        { "en": "Put up", "es": "Levantar" },
+        { "en": "Pull out", "es": "Retirar" },
+        { "en": "Pay off", "es": "Redimir" },
+        { "en": "Put off", "es": "Posponer" },
+        { "en": "Run", "es": "Correr" },
+        { "en": "Read", "es": "Leer" },
+        { "en": "Ride", "es": "Montar" },
+        { "en": "Rise", "es": "Levantarse" },
+        { "en": "Ring", "es": "Llamar" },
+        { "en": "Rip", "es": "Rasgar" },
+        { "en": "Rest", "es": "Descansar" },
+        { "en": "Rot", "es": "Romper" },
+        { "en": "Sail", "es": "Navegar" },
+        { "en": "Say", "es": "Decir" },
+        { "en": "See", "es": "Ver" },
+        { "en": "Set", "es": "Establecer" },
+        { "en": "Shake", "es": "Sacudir" },
+        { "en": "Shine", "es": "Brillar" },
+        { "en": "Shoot", "es": "Disparar" },
+        { "en": "Shrink", "es": "Encoger" },
+        { "en": "Sit", "es": "Sentarse" },
+        { "en": "Sleep", "es": "Dormir" },
+        { "en": "Slide", "es": "Deslizar" },
+        { "en": "Smell", "es": "Oler" },
+        { "en": "Sow", "es": "Sembrar" },
+        { "en": "Speak", "es": "Hablar" },
+        { "en": "Spin", "es": "Girar" },
+        { "en": "Split", "es": "Dividir" },
+        { "en": "Spread", "es": "Extender" },
+        { "en": "Stand", "es": "Estar de pie" },
+        { "en": "Steal", "es": "Robar" },
+        { "en": "Stick", "es": "Pegar" },
+        { "en": "Swear", "es": "Jurar" },
+        { "en": "Sweep", "es": "Barrer" },
+        { "en": "Swim", "es": "Nadar" },
+        { "en": "Take", "es": "Tomar" },
+        { "en": "Teach", "es": "Enseñar" },
+        { "en": "Tear", "es": "Romper" },
+        { "en": "Tell", "es": "Contar" },
+        { "en": "Think", "es": "Pensar" },
+        { "en": "Throw", "es": "Lanzar" },
+        { "en": "Tread", "es": "Pisar" },
+        { "en": "Treat", "es": "Tratar" },
+        { "en": "Trim", "es": "Recortar" },
+        { "en": "Try", "es": "Intentar" },
+        { "en": "Turn", "es": "Girar" },
+        { "en": "Wake", "es": "Despertar" },
+        { "en": "Wear", "es": "Usar" },
+        { "en": "Weave", "es": "Tejer" },
+        { "en": "Wed", "es": "Casarse" },
+        { "en": "Weep", "es": "Llorar" },
+        { "en": "Win", "es": "Ganar" },
+        { "en": "Wring", "es": "Escurrir" },
+        { "en": "Understand", "es": "Entender" },
+        { "en": "Use", "es": "Usar" },
+        { "en": "Unite", "es": "Unir" },
+        { "en": "Undo", "es": "Deshacer" },
+        { "en": "Upset", "es": "Molestar" },
+        { "en": "Visit", "es": "Visitar" },
+        { "en": "Vote", "es": "Votar" },
+        { "en": "Vacuum", "es": "Aspirar" },
+        { "en": "Value", "es": "Valorar" },
+        { "en": "Verify", "es": "Verificar" },
+        { "en": "Vanish", "es": "Desaparecer" },
+        { "en": "Vary", "es": "Variar" },
+        { "en": "Volunteer", "es": "Voluntariar" },
+        { "en": "Visit", "es": "Visitar" },
+        { "en": "Vow", "es": "Prometer" },
+        { "en": "View", "es": "Ver" },
+        { "en": "Venture", "es": "Aventurarse" },
+        { "en": "Veto", "es": "Vetar" },
+        { "en": "Voice", "es": "Expresar" },
+        { "en": "Vibrate", "es": "Vibrar" },
+        { "en": "Verify", "es": "Verificar" },
+        { "en": "Vary", "es": "Variar" },
+        { "en": "Wait", "es": "Esperar" },
+        { "en": "Walk", "es": "Caminar" },
+        { "en": "Want", "es": "Querer" },
+        { "en": "Wander", "es": "Vagar" },
+        { "en": "Warn", "es": "Advertir" },
+        { "en": "Waste", "es": "Desperdiciar" },
+        { "en": "Watch", "es": "Observar" },
+        { "en": "Wash", "es": "Lavar" },
+        { "en": "Wave", "es": "Agitar" },
+        { "en": "Wear", "es": "Usar" },
+        { "en": "Weave", "es": "Tejer" },
+        { "en": "Wed", "es": "Casarse" },
+        { "en": "Weep", "es": "Llorar" },
+        { "en": "Weigh", "es": "Pesar" },
+        { "en": "Win", "es": "Ganar" },
+        { "en": "Wish", "es": "Desear" },
+        { "en": "Withdraw", "es": "Retirar" },
+        { "en": "Wipe", "es": "Limpiar" },
+        { "en": "Work", "es": "Trabajar" },
+        { "en": "Worry", "es": "Preocuparse" },
+        { "en": "Write", "es": "Escribir" },
+        { "en": "Whisper", "es": "Susurrar" },
+        { "en": "Wait", "es": "Esperar" },
+        { "en": "Wander", "es": "Vagar" },
+        { "en": "Want", "es": "Querer" },
+        { "en": "Warn", "es": "Advertir" },
+        { "en": "Waste", "es": "Desperdiciar" },
+        { "en": "Watch", "es": "Observar" },
+        { "en": "Xerox", "es": "Xeroxear" },
+        { "en": "Yell", "es": "Gritar" },
+        { "en": "Yawn", "es": "Bostezar" },
+        { "en": "Yearn", "es": "Anhelar" },
+        { "en": "Yield", "es": "Rendir" },
+        { "en": "Yank", "es": "Tirar" },
+        { "en": "Zip", "es": "Cerrar con cremallera" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zeal", "es": "Entusiasmar" },
+        { "en": "Zero", "es": "Cero" },
+        { "en": "Zest", "es": "Entusiasmo" },
+        { "en": "Zigzag", "es": "Zigzaguear" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zinc", "es": "Zincar" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zone", "es": "Dividir en zonas" },
+        { "en": "Zip", "es": "Cerrar con cremallera" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zip", "es": "Cerrar con cremallera" },
+        { "en": "Yank", "es": "Tirar" },
+        { "en": "Yell", "es": "Gritar" },
+        { "en": "Yawn", "es": "Bostezar" },
+        { "en": "Yield", "es": "Rendir" },
+        { "en": "Yearn", "es": "Anhelar" },
+        { "en": "Xerox", "es": "Xeroxear" },
+        { "en": "Zip", "es": "Cerrar con cremallera" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zinc", "es": "Zincar" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zinc", "es": "Zincar" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zone", "es": "Dividir en zonas" },
+        { "en": "Zoom", "es": "Zoom" },
+        { "en": "Zip", "es": "Cerrar con cremallera" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Zigzag", "es": "Zigzaguear" },
+        { "en": "Zest", "es": "Entusiasmo" },
+        { "en": "Zero", "es": "Cero" },
+        { "en": "Zeal", "es": "Entusiasmar" },
+        { "en": "Zap", "es": "Zapear" },
+        { "en": "Ask out", "es": "Invitar a salir" },
+        { "en": "Back up", "es": "Respaldar" },
+        { "en": "Bring up", "es": "Mencionar" },
+        { "en": "Call off", "es": "Cancelar" },
+        { "en": "Check in", "es": "Registrarse" },
+        { "en": "Clean up", "es": "Limpiar" },
+        { "en": "Come across", "es": "Encontrarse con" },
+        { "en": "Count on", "es": "Contar con" },
+        { "en": "Cut off", "es": "Cortar" },
+        { "en": "Drop off", "es": "Dejar caer" },
+        { "en": "End up", "es": "Terminar" },
+        { "en": "Figure out", "es": "Descifrar" },
+        { "en": "Get along", "es": "Llevarse bien" },
+        { "en": "Go through", "es": "Pasar por" },
+        { "en": "Hang out", "es": "Salir" },
+        { "en": "Hold on", "es": "Esperar" },
+        { "en": "Keep up", "es": "Mantener" },
+        { "en": "Let down", "es": "Decepcionar" },
+        { "en": "Look after", "es": "Cuidar de" },
+        { "en": "Make up", "es": "Inventar" },
+        { "en": "Pay back", "es": "Devolver" },
+        { "en": "Put off", "es": "Posponer" },
+        { "en": "Run into", "es": "Toparse con" },
+        { "en": "Set up", "es": "Montar" },
+        { "en": "Show up", "es": "Aparecer" },
+        { "en": "Take off", "es": "Despegar" },
+        { "en": "Think over", "es": "Reflexionar" },
+        { "en": "Turn down", "es": "Rechazar" },
+        { "en": "Wake up", "es": "Despertar" },
+        { "en": "Work out", "es": "Resolver" },
+        { "en": "Break down", "es": "Romper" },
+        { "en": "Bring about", "es": "Provocar" },
+        { "en": "Call off", "es": "Cancelar" },
+        { "en": "Carry on", "es": "Continuar" },
+        { "en": "Catch up", "es": "Alcanzar" },
+        { "en": "Come up with", "es": "Idear" },
+        { "en": "Cut off", "es": "Cortar" },
+        { "en": "Do away with", "es": "Eliminar" },
+        { "en": "Drop off", "es": "Dejar" },
+        { "en": "End up", "es": "Terminar" },
+        { "en": "Fall apart", "es": "Desmoronarse" },
+        { "en": "Get along with", "es": "Llevarse bien con" },
+        { "en": "Get away with", "es": "Salirse con la suya" },
+        { "en": "Give up", "es": "Rendirse" },
+        { "en": "Go on", "es": "Seguir adelante" },
+        { "en": "Hang out", "es": "Salir" },
+        { "en": "Hold on", "es": "Esperar" },
+        { "en": "Keep up", "es": "Mantener" },
+        { "en": "Let down", "es": "Decepcionar" }
+    ];
+}
