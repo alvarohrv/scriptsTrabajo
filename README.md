@@ -4,6 +4,8 @@ File::: codV001.txt
 
 ![Screenshot](https://i.ibb.co/mVQGCV27/barra-de-dialogos-rapidos.jpg)
 
+Screenshot: https://i.ibb.co/mVQGCV27/barra-de-dialogos-rapidos.jpg
+
 ## Overview
 
 This project creates a **quick dialog bar** for customer service agents.
