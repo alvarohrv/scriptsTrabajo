@@ -1,3 +1,5 @@
+// scraping - extraer database directorio de empleadores SENA para pasantias.
+
 (async () => {
   const tarjetas = document.querySelectorAll('.divSolicitudRequeridaCasillaContenedor');
   const resultados = [];
@@ -13,7 +15,7 @@
     boton.click();
 
     // Esperar a que se abra el modal
-    await new Promise(resolve => setTimeout(resolve, 800)); // puedes ajustar el tiempo si el modal tarda más
+    await new Promise(resolve => setTimeout(resolve, 800)); 
 
     // Modal activo
     const modal = document.querySelector('.modal-content.aprendizModal');
